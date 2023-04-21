@@ -1,0 +1,90 @@
+# Package Overview
+package_name: gb_classifier
+
+# Data Files
+training_data_file: credit_score.csv
+test_data_file: test.csv
+
+# this variable is to calculate the temporal variable
+# but is dropped prior to model training.
+drop_features:
+  - ID
+  - Customer_ID
+  - Month
+  - Name
+  - SSN
+  - Type_of_Loan
+
+pipeline_name: gb_classification
+pipeline_save_file: gb_classification_output_v
+
+# Variables
+# The variable we are attempting to predict (sale price)
+target: Credit_Score
+
+
+features:
+  - Changed_Credit_Limit
+  - Payment_of_Min_Amount
+  - Credit_Mix
+  - Delay_from_due_date
+  - Annual_Income
+  - Monthly_Inhand_Salary
+  - Age
+  - Monthly_Balance
+  - Num_of_Delayed_Payment
+  - Outstanding_Debt
+  - Payment_Behaviour
+  - Credit_History_Age
+  - Num_Bank_Accounts
+  - Credit_Utilization_Ratio
+
+numerical_vars:
+  - Age
+  - Annual_Income
+  - Monthly_Inhand_Salary
+  - Num_Bank_Accounts
+  - Num_of_Delayed_Payment
+  - Changed_Credit_Limit
+  - Outstanding_Debt
+  - Credit_Utilization_Ratio
+  - Credit_History_Age
+  - Monthly_Balance
+
+categorical_vars:
+  - Occupation
+  - Credit_Mix
+  - Payment_of_Min_Amount
+  - Payment_Behaviour
+
+
+numerical_na_not_allowed:
+  - Age
+  - Annual_Income
+  - Num_Bank_Accounts
+  - Num_of_Delayed_Payment
+  - Outstanding_Debt
+  - Credit_History_Age
+  - Monthly_Balance
+
+# set train/test split
+test_size: 0.25
+
+# to set the random seed
+random_state: 42
+
+# The number of boosting stages to perform
+n_estimators: 100
+
+# Shrinks the contribution of each tree by learning_rate
+learning_rate: 0.2
+
+# The maximum depth limits the number of nodes in the tree
+max_depth: 5
+
+# loss function to be optimized
+loss: log_loss
+allowed_loss_functions:
+  - log_loss
+  - deviance
+  - exponential
