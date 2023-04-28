@@ -1,30 +1,24 @@
 import logging
 
-from feature_engine.encoding import RareLabelEncoder
 from gb_classifier.config.core import config
 from gb_classifier.processing import preprocessors as pp
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder
 
-_logger = logging.getLogger(__name__)
+_logger = logging.getLogger(name)
 
 
-price_pipe = Pipeline(
+score_pipe = Pipeline(
     [
-        (
-            "drop_features",
-            pp.DropUnnecessaryFeatures(
-                variables_to_drop=config.model_config.drop_features,
-            ),
-        ),
         (
             "change_type",
             pp.ChangeType(
-                numerical_vars=config.model_config.numerical_vars,
+                numerical_vars = config.model_config.numerical_vars,
             ),
         ),
+
         (
             "numerical_imputer",
             pp.SklearnTransformerWrapper(
@@ -47,6 +41,7 @@ price_pipe = Pipeline(
                 transformer=OrdinalEncoder(),
             ),
         ),
+
         (
             "remove_outliers",
             pp.RemoveOutliers(
@@ -55,8 +50,15 @@ price_pipe = Pipeline(
         ),
 
         (
+            "drop_features",
+            pp.DropUnnecessaryFeatures(
+                variables_to_drop=config.model_config.drop_features,
+            ),
+        ),
+
+        (
             "gb_model",
-            GradientBoostingRegressor(
+            GradientBoostingClassifier(
                 loss=config.model_config.loss,
                 random_state=config.model_config.random_state,
                 n_estimators=config.model_config.n_estimators,

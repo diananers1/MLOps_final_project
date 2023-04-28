@@ -1,0 +1,73 @@
+openapi: 3.0.0 # tells Connexion what version of the Open API is being used
+
+info: # begins a new ‘scope’ of information about the API being built
+  title: Credit_Score_Prediction API # a user defined title included in the Connexion generated UI system
+  version: '1.0.0' # a user defined version value for the API
+
+servers:
+- url: http://{base}:5000/
+  description: API for performing credit score predictions. # a user defined description of what the API provides
+  variables:
+    base:
+      default: 0.0.0.0
+
+paths: # defines the section of the configuration containing all of the API REST endpoints.
+  /: # defines home path
+    get: # defines the HTTP method this URL endpoint will respond to
+      operationId: api.controller.health # defines Python import path/function that will respond to HTTP GET / request
+      responses: # defines the beginning of the expected response section.
+        '200': # defines the section for a successful response, HTTP status code 200
+          description: API Health Status # defines what the UI interface will display for implementation notes.
+
+  /creditscore/predict:
+    post:
+      operationId: api.controller.predict
+      requestBody:
+        description: Details of user used to make price prediction
+        required: true
+        content:
+          application/json:
+            schema: # defines the response as a schema, or structure.
+              type: array # defines the structure of the schema as an array.
+              items:
+                $ref: '#/components/schemas/PersonAccountDetails'
+      responses:
+        '200':
+          description: Credit Score Predictions
+        '400':
+          description: Bad request, house data validation failed
+        '5XX':
+          description: Unexpected error
+
+components:
+  schemas:
+    PersonAccountDetails:
+      type: object
+      description: "List of the houses to get predictions for."
+      example:
+        ID: 0x1604
+        Customer_ID: CUS_0xd40
+        Month: June
+        Name: Rick Rothackerj
+        SSN: 821-00-0265
+        Type_of_Loan: Auto Loan, Credit-Builder Loan, Personal Loan, and Home Equity Loan
+        Changed_Credit_Limit: 7.1
+        Payment_of_Min_Amount: No
+        Credit_Mix: Good
+        Delay_from_due_date: 3
+        Annual_Income: 34847
+        Monthly_Inhand_Salary: 3700
+        Age: 23
+        Monthly_Balance: 340.479
+        Num_of_Delayed_Payment: 6
+        Outstanding_Debt: 809.98
+        Payment_Behaviour: High_spent_Medium_value_payments
+        Credit_History_Age: 22 Years and 6 Months
+        Num_Bank_Accounts: 3
+        Credit_Utilization_Ratio: 27.26
+        Occupation: Scientist
+        Num_Credit_Card: 4
+        Num_of_Loan: 4
+        Total_EMI_per_month: 49.56
+        Amount_invested_monthly: 178.34
+        Interest_Rate: 4

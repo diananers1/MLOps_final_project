@@ -1,6 +1,6 @@
 import logging
 
-from gb_classifier import __version__ as _version
+from gb_classifier import version as _version
 from gb_classifier import pipeline
 from gb_classifier.config.core import config
 from gb_classifier.processing.data_management import (
@@ -9,8 +9,7 @@ from gb_classifier.processing.data_management import (
 )
 from sklearn.model_selection import train_test_split
 
-_logger = logging.getLogger(__name__)
-
+_logger = logging.getLogger(name)
 
 def run_training() -> None:
     """Train the model."""
@@ -28,11 +27,12 @@ def run_training() -> None:
         random_state=config.model_config.random_state,
     )
 
-    pipeline.price_pipe.fit(X_train, y_train)
+    pipeline.score_pipe.fit(X_train, y_train)
+
 
     _logger.warning(f"saving model version: {_version}")
-    save_pipeline(pipeline_to_persist=pipeline.price_pipe)
+    save_pipeline(pipeline_to_persist=pipeline.score_pipe)
 
 
-if __name__ == "__main__":
+if name == "main":
     run_training()

@@ -14,6 +14,7 @@ drop_features:
   - Name
   - SSN
   - Type_of_Loan
+  - Credit_History_Age
 
 pipeline_name: gb_classification
 pipeline_save_file: gb_classification_output_v
@@ -24,6 +25,12 @@ target: Credit_Score
 
 
 features:
+  - ID
+  - Customer_ID
+  - Month
+  - Name
+  - SSN
+  - Type_of_Loan
   - Changed_Credit_Limit
   - Payment_of_Min_Amount
   - Credit_Mix
@@ -38,17 +45,30 @@ features:
   - Credit_History_Age
   - Num_Bank_Accounts
   - Credit_Utilization_Ratio
+  - Occupation
+  - Num_Credit_Card
+  - Num_of_Loan
+  - Total_EMI_per_month
+  - Amount_invested_monthly
+  - Interest_Rate
+  - Num_Credit_Inquiries
 
 numerical_vars:
   - Age
   - Annual_Income
   - Monthly_Inhand_Salary
   - Num_Bank_Accounts
+  - Num_Credit_Card
+  - Interest_Rate
+  - Num_of_Loan
+  - Delay_from_due_date
   - Num_of_Delayed_Payment
   - Changed_Credit_Limit
+  - Num_Credit_Inquiries
   - Outstanding_Debt
   - Credit_Utilization_Ratio
-  - Credit_History_Age
+  - Total_EMI_per_month
+  - Amount_invested_monthly
   - Monthly_Balance
 
 categorical_vars:
@@ -56,6 +76,7 @@ categorical_vars:
   - Credit_Mix
   - Payment_of_Min_Amount
   - Payment_Behaviour
+#  - Credit_Score
 
 
 numerical_na_not_allowed:
