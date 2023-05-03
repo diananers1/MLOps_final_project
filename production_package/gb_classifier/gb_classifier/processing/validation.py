@@ -2,7 +2,7 @@ from typing import Optional, Dict, Tuple
 
 import numpy as np
 import pandas as pd
-from gb_classifier.config.core import config
+from ..config.core import config
 from marshmallow import fields, Schema, ValidationError
 
 

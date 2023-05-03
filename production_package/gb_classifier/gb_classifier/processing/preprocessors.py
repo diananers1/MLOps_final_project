@@ -3,6 +3,7 @@ from sklearn.base import BaseEstimator
 from sklearn.pipeline import TransformerMixin
 import numpy as np
 
+
 class SklearnTransformerWrapper(BaseEstimator, TransformerMixin):
     """
     Wrapper for Scikit-learn pre-processing transformers,
@@ -10,7 +11,7 @@ class SklearnTransformerWrapper(BaseEstimator, TransformerMixin):
     the use of the transformer on a selected group of variables.
     """
 
-    def init(self, variables=None, transformer=None):
+    def __init__(self, variables=None, transformer=None):
 
         if not isinstance(variables, list):
             self.variables = [variables]
@@ -40,8 +41,9 @@ class SklearnTransformerWrapper(BaseEstimator, TransformerMixin):
 
         return X
 
+
 class ChangeType(BaseEstimator, TransformerMixin):
-    def init(self, numerical_vars=None):
+    def __init__(self, numerical_vars=None):
         self.numerical_vars = numerical_vars
 
     def fit(self, X, y=None):
@@ -67,7 +69,7 @@ class ChangeType(BaseEstimator, TransformerMixin):
 
 
 class DropUnnecessaryFeatures(BaseEstimator, TransformerMixin):
-    def init(self, variables_to_drop=None):
+    def __init__(self, variables_to_drop=None):
         self.variables_to_drop = variables_to_drop
 
     def fit(self, X, y=None):
@@ -87,10 +89,10 @@ class DropUnnecessaryFeatures(BaseEstimator, TransformerMixin):
 
 
 class RemoveOutliers(TransformerMixin):
-    def init(self, numerical_vars=None):
+    def __init__(self, numerical_vars=None):
         self.numerical_vars = numerical_vars
 
-    def fit(self, X, y  ):
+    def fit(self, X, y):
         """
         The fit method is necessary to accommodate the
         scikit-learn pipeline functionality.
@@ -99,7 +101,7 @@ class RemoveOutliers(TransformerMixin):
         self.y = y
         return self
 
-    def transform(self, X, y =None):
+    def transform(self, X, y=None):
         # print(111)
         X = X.copy()
 
@@ -109,10 +111,10 @@ class RemoveOutliers(TransformerMixin):
             Q3 = self.X[x].quantile(0.75)
             IQR = Q3 - Q1
             index_lb = self.X.loc[self.X[x] > (Q3 + 1.5 * IQR)].index
-            self.X.drop(index_lb, inplace = True)
-            self.y.drop(index_lb, inplace = True)
+            self.X.drop(index_lb, inplace=True)
+            self.y.drop(index_lb, inplace=True)
             index_ub = self.X.loc[self.X[x] < (Q1 - 1.5 * IQR)].index
-            self.X.drop(index_ub, inplace = True)
+            self.X.drop(index_ub, inplace=True)
             self.y.drop(index_ub, inplace=True)
 
         # return pd.concat([X,y], axis = 1)

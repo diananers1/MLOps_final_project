@@ -1,13 +1,13 @@
 import logging
 
-from gb_classifier.config.core import config
-from gb_classifier.processing import preprocessors as pp
+from config.core import config
+from processing import preprocessors as pp
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder
 
-_logger = logging.getLogger(name)
+_logger = logging.getLogger(__name__)
 
 
 score_pipe = Pipeline(
@@ -15,7 +15,7 @@ score_pipe = Pipeline(
         (
             "change_type",
             pp.ChangeType(
-                numerical_vars = config.model_config.numerical_vars,
+                numerical_vars=config.model_config.numerical_vars,
             ),
         ),
 

@@ -1,4 +1,6 @@
 # Web microframework for the API
 flask>=1.1.1,<1.2.0
-connexion[swagger-ui]==2.14.1
+#connexion[swagger-ui]==2.14.1
+connexion
+api
 markupsafe==2.0.1 # https://github.com/aws/aws-sam-cli/issues/3661

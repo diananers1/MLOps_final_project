@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from gb_classifier.config.core import (
+from ..gb_classifier.config.core import (
     create_and_validate_config,
     fetch_config_from_yaml,
 )
@@ -175,6 +175,7 @@ allowed_loss_functions:
   - exponential
 """
 
+
 def test_fetch_config_structure(tmpdir):  # tmpdir is a pytest built-in fixture
     # Given
     # We make use of the pytest built-in tmpdir fixture
@@ -189,6 +190,7 @@ def test_fetch_config_structure(tmpdir):  # tmpdir is a pytest built-in fixture
     # Then
     assert config.model_config
     assert config.app_config
+
 
 def test_config_validation_raises_error_for_invalid_config(tmpdir):
     # Given

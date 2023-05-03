@@ -1,0 +1,113 @@
+name: stylechecks
+run_id: install_deps
+env USERPROFILE: C:\Users\42pet
+env SYSTEMROOT: C:\WINDOWS
+env PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+env PROGRAMFILES(X86): C:\Program Files (x86)
+env PROCESSOR_ARCHITECTURE: AMD64
+env NUMBER_OF_PROCESSORS: 16
+env COMSPEC: C:\WINDOWS\system32\cmd.exe
+env PROGRAMFILES: C:\Program Files
+env TMP: C:\Users\42pet\AppData\Local\Temp
+env TEMP: C:\Users\42pet\AppData\Local\Temp
+env SYSTEMDRIVE: C:
+env PROGRAMDATA: C:\ProgramData
+env PATH: C:\Users\42pet\MLOps_final_project\production_package\model_api\.tox\integration_tests\Scripts;C:\Users\42pet\anaconda3\envs\MLOps;C:\Users\42pet\anaconda3\envs\MLOps\Library\mingw-w64\bin;C:\Users\42pet\anaconda3\envs\MLOps\Library\usr\bin;C:\Users\42pet\anaconda3\envs\MLOps\Library\bin;C:\Users\42pet\anaconda3\envs\MLOps\Scripts;C:\Users\42pet\anaconda3\envs\MLOps\bin;C:\Users\42pet\anaconda3\condabin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\libnvvp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\libnvvp;.;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.4.0;C:\Program Files\Docker\Docker\resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Users\42pet\anaconda3;C:\Users\42pet\anaconda3\Library\mingw-w64\bin;C:\Users\42pet\anaconda3\Library\usr\bin;C:\Users\42pet\anaconda3\Library\bin;C:\Users\42pet\anaconda3\Scripts;C:\Users\42pet\AppData\Local\Microsoft\WindowsApps;C:\Users\42pet\AppData\Local\GitHubDesktop\bin;C:\Users\42pet\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\42pet\AppData\Roaming\TinyTeX\bin\win32
+env PYTHONHASHSEED: 822
+env PIP_DISABLE_PIP_VERSION_CHECK: 1
+env PYTHONIOENCODING: utf-8
+env TOX_ENV_NAME: stylechecks
+env TOX_WORK_DIR: C:\Users\42pet\MLOps_final_project\production_package\model_api\.tox
+env TOX_ENV_DIR: C:\Users\42pet\MLOps_final_project\production_package\model_api\.tox\integration_tests
+env VIRTUAL_ENV: C:\Users\42pet\MLOps_final_project\production_package\model_api\.tox\integration_tests
+env COLUMNS: 185
+env LINES: 12
+metadata pid: 6832
+cwd: C:\Users\42pet\MLOps_final_project\production_package\model_api
+allow: C:\Users\42pet\MLOps_final_project\production_package\model_api\.tox\integration_tests\Scripts\*
+cmd: pip install -r requirements_dev.txt
+exit_code: 0
+Collecting flask<1.2.0,>=1.1.1 (from -r requirements.txt (line 2))
+  Using cached Flask-1.1.4-py2.py3-none-any.whl (94 kB)
+Collecting connexion[swagger-ui]==2.14.1 (from -r requirements.txt (line 3))
+  Using cached connexion-2.14.1-py2.py3-none-any.whl (95 kB)
+Collecting markupsafe==2.0.1 (from -r requirements.txt (line 4))
+  Using cached MarkupSafe-2.0.1-cp39-cp39-win_amd64.whl (14 kB)
+Collecting pytest==7.1.3 (from -r requirements_dev.txt (line 4))
+  Using cached pytest-7.1.3-py3-none-any.whl (298 kB)
+Collecting black<20.0,>=19.10b0 (from -r requirements_dev.txt (line 7))
+  Using cached black-19.10b0-py36-none-any.whl (97 kB)
+Collecting flake8<4.0,>=3.7.9 (from -r requirements_dev.txt (line 8))
+  Using cached flake8-3.9.2-py2.py3-none-any.whl (73 kB)
+Collecting mypy>=0.740 (from -r requirements_dev.txt (line 9))
+  Using cached mypy-1.2.0-cp39-cp39-win_amd64.whl (8.9 MB)
+Collecting clickclick<21,>=1.2 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached clickclick-20.10.2-py2.py3-none-any.whl (7.4 kB)
+Collecting jsonschema<5,>=2.5.1 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached jsonschema-4.17.3-py3-none-any.whl (90 kB)
+Collecting PyYAML<7,>=5.1 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached PyYAML-6.0-cp39-cp39-win_amd64.whl (151 kB)
+Collecting requests<3,>=2.9.1 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached requests-2.29.0-py3-none-any.whl (62 kB)
+Collecting inflection<0.6,>=0.3.1 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Collecting werkzeug<3,>=1.0 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached Werkzeug-2.3.3-py3-none-any.whl (242 kB)
+Collecting packaging>=20 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached packaging-23.1-py3-none-any.whl (48 kB)
+Collecting itsdangerous>=0.24 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+Collecting swagger-ui-bundle<0.1,>=0.0.2 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached swagger_ui_bundle-0.0.9-py3-none-any.whl (6.2 MB)
+Collecting attrs>=19.2.0 (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached attrs-23.1.0-py3-none-any.whl (61 kB)
+Collecting iniconfig (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Collecting pluggy<2.0,>=0.12 (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+Collecting py>=1.8.2 (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached py-1.11.0-py2.py3-none-any.whl (98 kB)
+Collecting tomli>=1.0.0 (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
+Collecting colorama (from pytest==7.1.3->-r requirements_dev.txt (line 4))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting werkzeug<3,>=1.0 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+Collecting Jinja2<3.0,>=2.10.1 (from flask<1.2.0,>=1.1.1->-r requirements.txt (line 2))
+  Using cached Jinja2-2.11.3-py2.py3-none-any.whl (125 kB)
+Collecting itsdangerous>=0.24 (from connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting click<8.0,>=5.1 (from flask<1.2.0,>=1.1.1->-r requirements.txt (line 2))
+  Using cached click-7.1.2-py2.py3-none-any.whl (82 kB)
+Collecting appdirs (from black<20.0,>=19.10b0->-r requirements_dev.txt (line 7))
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Collecting toml>=0.9.4 (from black<20.0,>=19.10b0->-r requirements_dev.txt (line 7))
+  Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting typed-ast>=1.4.0 (from black<20.0,>=19.10b0->-r requirements_dev.txt (line 7))
+  Using cached typed_ast-1.5.4-cp39-cp39-win_amd64.whl (162 kB)
+Collecting regex (from black<20.0,>=19.10b0->-r requirements_dev.txt (line 7))
+  Using cached regex-2023.5.4-cp39-cp39-win_amd64.whl (267 kB)
+Collecting pathspec<1,>=0.6 (from black<20.0,>=19.10b0->-r requirements_dev.txt (line 7))
+  Using cached pathspec-0.11.1-py3-none-any.whl (29 kB)
+Collecting pyflakes<2.4.0,>=2.3.0 (from flake8<4.0,>=3.7.9->-r requirements_dev.txt (line 8))
+  Using cached pyflakes-2.3.1-py2.py3-none-any.whl (68 kB)
+Collecting pycodestyle<2.8.0,>=2.7.0 (from flake8<4.0,>=3.7.9->-r requirements_dev.txt (line 8))
+  Using cached pycodestyle-2.7.0-py2.py3-none-any.whl (41 kB)
+Collecting mccabe<0.7.0,>=0.6.0 (from flake8<4.0,>=3.7.9->-r requirements_dev.txt (line 8))
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting typing-extensions>=3.10 (from mypy>=0.740->-r requirements_dev.txt (line 9))
+  Using cached typing_extensions-4.5.0-py3-none-any.whl (27 kB)
+Collecting mypy-extensions>=1.0.0 (from mypy>=0.740->-r requirements_dev.txt (line 9))
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 (from jsonschema<5,>=2.5.1->connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached pyrsistent-0.19.3-cp39-cp39-win_amd64.whl (62 kB)
+Collecting charset-normalizer<4,>=2 (from requests<3,>=2.9.1->connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached charset_normalizer-3.1.0-cp39-cp39-win_amd64.whl (97 kB)
+Collecting idna<4,>=2.5 (from requests<3,>=2.9.1->connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached idna-3.4-py3-none-any.whl (61 kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests<3,>=2.9.1->connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached urllib3-1.26.15-py2.py3-none-any.whl (140 kB)
+Collecting certifi>=2017.4.17 (from requests<3,>=2.9.1->connexion[swagger-ui]==2.14.1->-r requirements.txt (line 3))
+  Using cached certifi-2022.12.7-py3-none-any.whl (155 kB)
+Installing collected packages: mccabe, appdirs, werkzeug, urllib3, typing-extensions, typed-ast, tomli, toml, regex, PyYAML, pyrsistent, pyflakes, pycodestyle, py, pluggy, pathspec, packaging, mypy-extensions, markupsafe, itsdangerous, iniconfig, inflection, idna, colorama, click, charset-normalizer, certifi, attrs, requests, pytest, mypy, jsonschema, Jinja2, flake8, clickclick, black, swagger-ui-bundle, flask, connexion
+Successfully installed Jinja2-2.11.3 PyYAML-6.0 appdirs-1.4.4 attrs-23.1.0 black-19.10b0 certifi-2022.12.7 charset-normalizer-3.1.0 click-7.1.2 clickclick-20.10.2 colorama-0.4.6 connexion-2.14.1 flake8-3.9.2 flask-1.1.4 idna-3.4 inflection-0.5.1 iniconfig-2.0.0 itsdangerous-1.1.0 jsonschema-4.17.3 markupsafe-2.0.1 mccabe-0.6.1 mypy-1.2.0 mypy-extensions-1.0.0 packaging-23.1 pathspec-0.11.1 pluggy-1.0.0 py-1.11.0 pycodestyle-2.7.0 pyflakes-2.3.1 pyrsistent-0.19.3 pytest-7.1.3 regex-2023.5.4 requests-2.29.0 swagger-ui-bundle-0.0.9 toml-0.10.2 tomli-2.0.1 typed-ast-1.5.4 typing-extensions-4.5.0 urllib3-1.26.15 werkzeug-1.0.1

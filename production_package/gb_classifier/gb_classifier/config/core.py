@@ -42,7 +42,6 @@ class ModelConfig(BaseModel):
     learning_rate: float
     max_depth: int
 
-
     # the order is necessary for validation
     allowed_loss_functions: t.Tuple[str, ...]  # ... is called Ellipsis and can be used for arbitrary-length homogeneous
     loss: str                                  # tuples in typing

@@ -1,6 +1,6 @@
 import logging
 
-from gb_classifier.config.core import config, PACKAGE_ROOT
+from config.core import config, PACKAGE_ROOT
 
 # https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library
 logging.getLogger(config.app_config.package_name).addHandler(logging.NullHandler())

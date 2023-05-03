@@ -1,7 +1,7 @@
 import json
 
 from flask import request, jsonify, Response
-from gb_classifier.predict import make_prediction
+from ...gb_classifier.gb_classifier.predict import make_prediction
 
 
 def health():
