@@ -2,7 +2,7 @@ import logging
 
 from __init__ import __version__ as _version
 import pipeline
-import config
+from config.core import config
 from processing.data_management import (
     load_dataset,
     save_pipeline,
