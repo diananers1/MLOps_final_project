@@ -1,0 +1,21 @@
+global:
+  scrape_interval:     10
+
+  external_labels:
+      monitor: 'my-project'
+
+
+scrape_configs:
+  - job_name: 'prometheus'
+
+    scrape_interval: 5s
+
+    static_configs:
+         - targets: ['prometheus:9090']
+
+  - job_name: 'ml_api'
+
+    scrape_interval: 5s
+
+    static_configs:
+        - targets: ['ml_api:5000']
