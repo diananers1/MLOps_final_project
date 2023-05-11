@@ -111,11 +111,12 @@ class RemoveOutliers(TransformerMixin):
             Q3 = self.X[x].quantile(0.75)
             IQR = Q3 - Q1
             index_lb = self.X.loc[self.X[x] > (Q3 + 1.5 * IQR)].index
-            self.X.drop(index_lb, inplace=True)
-            self.y.drop(index_lb, inplace=True)
             index_ub = self.X.loc[self.X[x] < (Q1 - 1.5 * IQR)].index
-            self.X.drop(index_ub, inplace=True)
-            self.y.drop(index_ub, inplace=True)
+            self.X.drop(index_lb, inplace=True, errors="ignore")
+            # self.y.drop(index_lb, inplace=True, errors="ignore")
+            self.X.drop(index_ub, inplace=True, errors="ignore")
+            # self.y.drop(index_ub, inplace=True, errors="ignore")
+            self.y = self.y[self.X.index]
 
-        # return pd.concat([X,y], axis = 1)
+        # return pd.concat([X, y], axis = 1)
         return self.X

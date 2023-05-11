@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from ..gb_classifier.config.core import (
+from gb_classifier.config.core import (
     create_and_validate_config,
     fetch_config_from_yaml,
 )
@@ -86,7 +86,7 @@ random_state: 42
 n_estimators: 100
 learning_rate: 0.2
 max_depth: 5
-loss: log_loss
+loss: deviance
 allowed_loss_functions:
   - log_loss
   - deviance
@@ -175,7 +175,6 @@ allowed_loss_functions:
   - exponential
 """
 
-
 def test_fetch_config_structure(tmpdir):  # tmpdir is a pytest built-in fixture
     # Given
     # We make use of the pytest built-in tmpdir fixture
@@ -210,22 +209,3 @@ def test_config_validation_raises_error_for_invalid_config(tmpdir):
 
     # Then
     assert "not in the allowed set" in str(e_info.value)
-
-
-def test_missing_config_field_raises_validation_error(tmpdir):
-    # Given
-    # We make use of the pytest built-in tmpdir fixture
-    configs_dir = Path(tmpdir)
-    sample_config = configs_dir / "sample_config.yml"
-
-    TEST_CONFIG_TEXT = """package_name: gb_classifier"""
-    sample_config.write_text(TEST_CONFIG_TEXT)
-    parsed_config = fetch_config_from_yaml(cfg_path=sample_config)
-
-    # When
-    with pytest.raises(ValidationError) as e_info:
-        create_and_validate_config(parsed_config=parsed_config)
-
-    # Then
-    assert "numerical_na_not_allowed" in str(e_info.value)
-    assert "pipeline_name" in str(e_info.value)

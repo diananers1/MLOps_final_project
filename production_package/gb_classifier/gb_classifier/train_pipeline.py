@@ -1,9 +1,9 @@
 import logging
 
-from __init__ import __version__ as _version
-import pipeline
-from config.core import config
-from processing.data_management import (
+from gb_classifier.version import VERSION as _version
+from gb_classifier import pipeline
+from gb_classifier.config.core import config
+from gb_classifier.processing.data_management import (
     load_dataset,
     save_pipeline,
 )

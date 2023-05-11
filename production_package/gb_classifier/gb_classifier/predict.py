@@ -2,15 +2,15 @@ import logging
 from typing import Union, Dict
 
 import pandas as pd
-from . import __version__ as _version
-from config.core import config
-from processing.data_management import load_pipeline
-from processing.validation import validate_inputs
+from gb_classifier import __version__ as _version
+from gb_classifier.config.core import config
+from gb_classifier.processing.data_management import load_pipeline
+from gb_classifier.processing.validation import validate_inputs
 
 _logger = logging.getLogger(__name__)
 
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
-_price_pipe = load_pipeline(file_name=pipeline_file_name)
+_score_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
 def make_prediction(*, input_data: Union[pd.DataFrame, Dict],) -> Dict:
@@ -21,7 +21,7 @@ def make_prediction(*, input_data: Union[pd.DataFrame, Dict],) -> Dict:
     results = {"predictions": None, "version": _version, "errors": errors}
 
     if not errors:
-        predictions = _price_pipe.predict(
+        predictions = _score_pipe.predict(
             X=validated_data[config.model_config.features]
         )
         _logger.info(
