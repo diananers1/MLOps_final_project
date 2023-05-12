@@ -117,5 +117,6 @@ class RemoveOutliers(TransformerMixin):
             self.X.drop(outlier_indices, inplace=True, errors="ignore")
             self.y.drop(outlier_indices, inplace=True, errors="ignore")
 
+
         # return pd.concat([X, y], axis = 1)
         return self.X
