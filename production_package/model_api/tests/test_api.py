@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import pytest
-from ...gb_classifier.gb_classifier.processing.data_management import load_dataset
+from gb_classifier.processing.data_management import load_dataset
 
 SECONDARY_VARIABLES_TO_RENAME = {
     "Num_of_Delayed_Payment": "DelayedPaymCount",

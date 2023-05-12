@@ -1,7 +1,8 @@
 import logging
 
 import connexion
-from ..api.config import Config
+from api.config import Config
+from api.monitoring.middleware import setup_metrics
 
 _logger = logging.getLogger(__name__)
 
@@ -14,8 +15,10 @@ def create_app(*, config_object: Config) -> connexion.App:
     )  # create the application instance
     flask_app = connexion_app.app
     flask_app.config.from_object(config_object)
-    connexion_app.add_api("api.yaml")  # read the swagger.yml file to configure the endpoints
 
+    setup_metrics(flask_app)
+
+    connexion_app.add_api("api.yaml")  # read the swagger.yml file to configure the endpoints
     _logger.info("Application instance created")
 
     return connexion_app

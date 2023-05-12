@@ -1,4 +1,9 @@
 # Web microframework for the API
 flask>=1.1.1,<1.2.0
-connexion==2.14.1
+connexion[swagger-ui]===2.14.1
 markupsafe==2.0.1 # https://github.com/aws/aws-sam-cli/issues/3661
+# Monitoring
+prometheus_client>=0.7.1,<0.8.0
+
+# Deployment
+gunicorn>=20.0.4,<20.1.0
