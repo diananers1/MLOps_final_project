@@ -1,19 +1,21 @@
 import json
 
 from flask import request, jsonify, Response
+
 from gb_classifier.gb_classifier.predict import make_prediction
+
 from prometheus_client import Histogram, Gauge, Info
-from api.config import APP_NAME
+from model_api.api.config import APP_NAME
 
 PREDICTION_TRACKER = Histogram(
-    name='house_price_prediction_dollars',
-    documentation='ML Model Prediction on House Price',
+    name='Credit_score_prediction_dollars',
+    documentation='ML Model Prediction on Credit Score',
     labelnames=['app_name', 'model_name', 'model_version']
 )
 
 PREDICTION_GAUGE = Gauge(
-    name='house_price_gauge_dollars',
-    documentation='ML Model Prediction on House Price for min max calcs',
+    name='Credit_score_gauge',
+    documentation='ML Model Prediction on Credit Score for min max calcs',
     labelnames=['app_name', 'model_name', 'model_version']
 )
 
@@ -29,9 +31,7 @@ MODEL_VERSIONS = Info(
 
 MODEL_VERSIONS.info({
     'live_model': ModelType.LASSO.name,
-    'live_version': live_version,
-    'shadow_model': ModelType.GRADIENT_BOOSTING.name,
-    'shadow_version': shadow_version})
+    'live_version': live_version})
 
 def health():
     if request.method == "GET":

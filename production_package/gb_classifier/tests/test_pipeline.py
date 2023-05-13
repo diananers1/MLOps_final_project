@@ -1,6 +1,6 @@
-from gb_classifier import pipeline
-from gb_classifier.config.core import config
-from gb_classifier.processing.validation import validate_inputs
+from gb_classifier.gb_classifier import pipeline
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing.validation import validate_inputs
 
 
 def test_pipeline_drops_unnecessary_features(pipeline_inputs):

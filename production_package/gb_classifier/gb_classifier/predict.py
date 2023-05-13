@@ -2,10 +2,10 @@ import logging
 from typing import Union, Dict
 
 import pandas as pd
-from gb_classifier import __version__ as _version
-from gb_classifier.config.core import config
-from gb_classifier.processing.data_management import load_pipeline
-from gb_classifier.processing.validation import validate_inputs
+from gb_classifier.gb_classifier import __version__ as _version
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing.data_management import load_pipeline
+from gb_classifier.gb_classifier.processing.validation import validate_inputs
 
 _logger = logging.getLogger(__name__)
 

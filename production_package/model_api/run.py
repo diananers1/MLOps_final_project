@@ -1,7 +1,7 @@
 import prometheus_client
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from api.app import create_app
-from api.config import DevelopmentConfig, setup_app_logging
+from model_api.api.app import create_app
+from model_api.api.config import DevelopmentConfig, setup_app_logging
 
 
 _config = DevelopmentConfig()

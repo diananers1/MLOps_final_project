@@ -1,5 +1,5 @@
-from gb_classifier.config.core import config
-from gb_classifier.processing import preprocessors as pp
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing import preprocessors as pp
 
 
 def test_drop_unnecessary_features_transformer(pipeline_inputs):

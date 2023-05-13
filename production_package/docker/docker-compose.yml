@@ -2,14 +2,15 @@ version: '3.8'
 services:
   ml_api:
     build:
-      context: ../
+      context: ../../production_package
       dockerfile: docker/Dockerfile
     container_name: model_api
     expose:
       - 5000
     ports:
       - "5001:5000"   # expose webserver to localhost host:container
-    command: bash -c "make run-service-wsgi"
+    command: bash -c "cd model_api && make run-service-wsgi"
+
 
   prometheus:
     image: prom/prometheus

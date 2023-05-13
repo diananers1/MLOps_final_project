@@ -1,6 +1,6 @@
 import pytest
-from gb_classifier.config.core import config
-from gb_classifier.processing.data_management import load_dataset
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing.data_management import load_dataset
 from sklearn.model_selection import train_test_split
 
 

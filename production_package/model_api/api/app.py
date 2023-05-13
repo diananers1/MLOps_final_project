@@ -1,8 +1,8 @@
 import logging
 
 import connexion
-from api.config import Config
-from api.monitoring.middleware import setup_metrics
+from model_api.api.config import Config
+from model_api.api.monitoring.middleware import setup_metrics
 
 _logger = logging.getLogger(__name__)
 

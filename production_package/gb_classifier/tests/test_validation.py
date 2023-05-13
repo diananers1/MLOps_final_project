@@ -1,6 +1,6 @@
 import pytest
 
-from gb_classifier.processing.validation import validate_inputs
+from gb_classifier.gb_classifier.processing.validation import validate_inputs
 
 
 def test_validate_inputs(sample_test_data):

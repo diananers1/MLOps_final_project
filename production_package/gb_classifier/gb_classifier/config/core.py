@@ -1,8 +1,12 @@
 import typing as t
 from pathlib import Path
+import logging
 
 from pydantic import BaseModel, validator
 from yaml import safe_load
+
+
+_logger = logging.getLogger(__name__)
 
 # Project Directories
 PARENT_DIR = Path(__file__).resolve().parent
@@ -11,6 +15,12 @@ CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 
+_logger.info(
+    f"PACKAGE ROOT: {PACKAGE_ROOT} "
+    f"CONFIG_FILE_PATH: {CONFIG_FILE_PATH}"
+    f"TRAINED_MODEL_DIR: {TRAINED_MODEL_DIR}"
+    f"DATASET_DIR: {DATASET_DIR}"
+)
 
 class AppConfig(BaseModel):
     """

@@ -2,7 +2,7 @@ from typing import Optional, Dict, Tuple
 
 import numpy as np
 import pandas as pd
-from gb_classifier.config.core import config
+from gb_classifier.gb_classifier.config.core import config
 from marshmallow import fields, Schema, ValidationError
 
 
@@ -48,8 +48,6 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
 
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[Dict]]:
     """Check model inputs for unprocessable values."""
-
-    # input_data.rename(columns=config.model_config.variables_to_rename, inplace=True)  # TODO: Delete if you are sure.
     validated_data = drop_na_inputs(input_data=input_data)
 
     # set many=True to allow passing in a list

@@ -14,14 +14,14 @@ servers:
 paths: # defines the section of the configuration containing all of the API REST endpoints.
   /: # defines home path
     get: # defines the HTTP method this URL endpoint will respond to
-      operationId: api.controller.health # defines Python import path/function that will respond to HTTP GET / request
+      operationId: model_api.api.controller.health # defines Python import path/function that will respond to HTTP GET / request
       responses: # defines the beginning of the expected response section.
         '200': # defines the section for a successful response, HTTP status code 200
           description: API Health Status # defines what the UI interface will display for implementation notes.
 
   /creditscore/predict:
     post:
-      operationId: api.controller.predict
+      operationId: model_api.api.controller.predict
       requestBody:
         description: Details of user used to make price prediction
         required: true

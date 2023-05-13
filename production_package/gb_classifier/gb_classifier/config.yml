@@ -1,5 +1,5 @@
 # Package Overview
-package_name: gb_classifier
+package_name: gb_classifier.gb_classifier
 
 # Data Files
 training_data_file: credit_score.csv
@@ -16,7 +16,7 @@ drop_features:
   - Type_of_Loan
   - Credit_History_Age
 
-pipeline_name: gb_classification
+pipeline_name: gb_classifier.gb_classifier
 pipeline_save_file: gb_classification_output_v
 
 # Variables

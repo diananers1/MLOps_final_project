@@ -1,9 +1,9 @@
 import logging
 
-from gb_classifier.version import VERSION as _version
-from gb_classifier import pipeline
-from gb_classifier.config.core import config
-from gb_classifier.processing.data_management import (
+from gb_classifier.gb_classifier.version import VERSION as _version
+from gb_classifier.gb_classifier import pipeline
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing.data_management import (
     load_dataset,
     save_pipeline,
 )

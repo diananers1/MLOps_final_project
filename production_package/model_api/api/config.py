@@ -2,8 +2,7 @@ import logging
 import os
 import pathlib
 import sys
-
-import api
+import model_api.api as api
 
 # logging format
 FORMATTER = logging.Formatter(

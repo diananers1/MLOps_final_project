@@ -1,7 +1,7 @@
 import logging
 
-from gb_classifier.config.core import config
-from gb_classifier.processing import preprocessors as pp
+from gb_classifier.gb_classifier.config.core import config
+from gb_classifier.gb_classifier.processing import preprocessors as pp
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
